@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#ffd9e8">
   <meta name="supported-color-schemes" content="light">
-  <title>Scoop Teraphie</title>
+  <title>Scoop Therapie</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1175,7 +1175,7 @@
   <main class="site" id="siteContent">
     <section class="landing-wrap">
       <div class="logo-box">
-        <img src="https://i.ibb.co.com/KpG45xBD/LOGO-1.png" alt="Scoop Teraphie Logo" />
+        <img src="https://i.ibb.co.com/KpG45xBD/LOGO-1.png" alt="Scoop  Logo" />
       </div>
 
       <p class="tagline">
@@ -1922,7 +1922,7 @@ function showOpenBrowserNotice() {
 
       twibbonCtx.fillStyle = '#9f6b4d';
       twibbonCtx.font = '42px Kalam, Arial, sans-serif';
-      twibbonCtx.fillText('Scoop Teraphie', CANVAS_WIDTH / 2, CANVAS_HEIGHT - 92);
+      twibbonCtx.fillText('Scoop ', CANVAS_WIDTH / 2, CANVAS_HEIGHT - 92);
       twibbonCtx.restore();
     }
 
@@ -2066,7 +2066,7 @@ downloadTwibbonBtn.addEventListener('click', () => {
   }
 
   const resultName = resultData[currentResultKey].ENG.toLowerCase();
-  const fileName = `scoop-teraphie-${resultName}-twibbon.png`;
+  const fileName = `scoop--${resultName}-twibbon.png`;
 
   twibbonCanvas.toBlob(async (blob) => {
     if (!blob) {
@@ -2086,8 +2086,8 @@ downloadTwibbonBtn.addEventListener('click', () => {
       try {
         await navigator.share({
           files: [file],
-          title: 'Scoop Teraphie Twibbon',
-          text: 'My Scoop Teraphie result!'
+          title: 'Scoop  Twibbon',
+          text: 'My Scoop  result!'
         });
         return;
       } catch (error) {
@@ -2127,7 +2127,7 @@ downloadTwibbonBtn.addEventListener('click', () => {
         }
       </p>
 
-      <img class="save-image-preview" src="${imageUrl}" alt="Scoop Teraphie Twibbon Result">
+      <img class="save-image-preview" src="${imageUrl}" alt="Scoop  Twibbon Result">
 
       <button class="twibbon-btn secondary close-save-preview" type="button">
         ${currentLanguage === 'INA' ? 'tutup' : 'close'}
