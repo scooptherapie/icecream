@@ -1148,6 +1148,23 @@
     </div>
   </div>
 
+  <!-- WARNING POPUP -->
+<div class="username-popup" id="warningPopup">
+  <div class="username-box">
+    <h2 class="username-title">WARNING !</h2>
+
+    <p class="username-text">
+      Link ini lebih baik digunakan di Chrome atau Safari.
+      Harap salin link dan buka menggunakan salah satu aplikasi tersebut.
+      Silakan hiraukan pesan ini jika kamu sudah menggunakan Chrome atau Safari.
+    </p>
+
+    <button class="twibbon-btn primary username-submit" id="warningOkBtn" type="button">
+      OK
+    </button>
+  </div>
+</div>
+
   <!-- USERNAME POPUP -->
 <div class="username-popup" id="usernamePopup">
   <div class="username-box">
@@ -1275,6 +1292,8 @@ const supabaseClient = window.supabase.createClient(
     const usernameInput = document.getElementById("usernameInput");
     const usernameSubmitBtn = document.getElementById("usernameSubmitBtn");
     const usernameError = document.getElementById("usernameError");
+    const warningPopup = document.getElementById("warningPopup");
+    const warningOkBtn = document.getElementById("warningOkBtn");
     
     let currentUsername = "";
     let currentUserRowId = "";
@@ -1452,10 +1471,21 @@ const supabaseClient = window.supabase.createClient(
 
 function hideLoader() {
   pageLoader.classList.add("hide");
+  showWarningPopup();
+}
+
+function showWarningPopup() {
+  warningPopup.classList.add("show");
+}
+
+function hideWarningPopup() {
+  warningPopup.classList.remove("show");
   showUsernamePopup();
 }
 
-  function showUsernamePopup() {
+warningOkBtn.addEventListener("click", hideWarningPopup);
+
+function showUsernamePopup() {
   usernamePopup.classList.add("show");
 
   setTimeout(() => {
