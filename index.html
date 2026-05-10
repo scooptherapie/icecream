@@ -2096,9 +2096,9 @@ downloadTwibbonBtn.addEventListener('click', () => {
   }
 
   const resultName = resultData[currentResultKey].ENG.toLowerCase();
-  const fileName = `scoop--${resultName}-twibbon.png`;
+  const fileName = `scoop-therapie-${resultName}-invitation.png`;
 
-  twibbonCanvas.toBlob(async (blob) => {
+  twibbonCanvas.toBlob((blob) => {
     if (!blob) {
       alert(
         currentLanguage === 'INA'
@@ -2108,33 +2108,20 @@ downloadTwibbonBtn.addEventListener('click', () => {
       return;
     }
 
-    const file = new File([blob], fileName, { type: 'image/png' });
     const imageUrl = URL.createObjectURL(blob);
 
-    // 1. Coba share/save lewat fitur HP
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      try {
-        await navigator.share({
-          files: [file],
-          title: 'Scoop  Twibbon',
-          text: 'My Scoop  result!'
-        });
-        return;
-      } catch (error) {
-        console.log('Share gagal atau dibatalkan:', error);
-      }
-    }
-
-    // 2. Coba download normal
     const link = document.createElement('a');
     link.href = imageUrl;
     link.download = fileName;
+    link.style.display = 'none';
+
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
 
-    // 3. Fallback untuk Twitter / Telegram in-app browser
-    showSaveImageFallback(imageUrl);
+    setTimeout(() => {
+      URL.revokeObjectURL(imageUrl);
+    }, 1000);
   }, 'image/png');
 });
     function showSaveImageFallback(imageUrl) {
